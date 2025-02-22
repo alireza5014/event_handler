@@ -20,7 +20,7 @@ function EventsListComponent({event, data, onClick}) {
         return date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
     }
     return (
-        <div style={{display: 'flex', flexDirection: 'column-reverse'}}>
+        <div style={{display: 'flex', flexDirection: 'column-reverse',maxWidth:'1400px'}}>
 
 
             <List

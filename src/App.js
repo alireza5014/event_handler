@@ -4,14 +4,19 @@ import 'react-json-pretty/themes/monikai.css';
 import params from "./params";
 import {useEffect, useState} from "react";
 import JSONPretty from 'react-json-pretty';
-import {Avatar, Button, Card, Col, Divider, notification, Form, Input, Modal, Row, Tabs, Typography} from "antd";
+import {Avatar, Button, Card, Col, Divider, Form, Input, Modal, Row, Tabs, Typography} from "antd";
 import EventsListComponent from "./components/EventsListComponent";
 import serverEvents from "./serverEvents";
+import MyEvent from "./observers/MyEvent";
+import WebrtcBg from "./components/WebrtcBg";
 
 var JSONPrettyMon = require('react-json-pretty/dist/monikai');
 
 var chatAgent
 const {Text} = Typography
+
+var myEvent = new MyEvent()
+
 
 function App() {
 
@@ -23,12 +28,14 @@ function App() {
 
     const onSetToken = (data) => {
         localStorage.setItem("accessToken", data.token)
+        myEvent.emit("ali", data.token)
+
         window.location.reload()
 
     }
     const logout = () => {
         localStorage.removeItem("accessToken")
-         window.location.reload()
+        window.location.reload()
 
     }
     const contOfEvents = (data) => {
@@ -64,9 +71,16 @@ function App() {
     /*
      * Main Chat Ready Listener
      */
-    useEffect(() => {
+    useEffect(async () => {
+
+
+        myEvent.on("ali", function (data) {
+            alert(data)
+        })
+
         if (typeof chatAgent == 'undefined') {
             chatAgent = new PodChat(params(localStorage.getItem("accessToken")));
+
             chatAgent.on("chatReady", function () {
                 console.log('chatReady')
             });
@@ -182,6 +196,8 @@ function App() {
 
 
     return (<Row>
+            <WebrtcBg/>
+
             <Modal footer={null} visible={showLoginModal}>
                 <Form
                     layout="vertical"

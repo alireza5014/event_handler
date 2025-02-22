@@ -1,0 +1,35 @@
+@import '../../../styles/responsive';
+
+.Navbar__Main{
+  border:0 solid #f1f1f1;
+  padding: 0 20px;
+  //background: colorBgBase;
+  position: sticky;
+  top: 0;
+  border-radius: 10px;
+  height: 60px !important;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Navbar__Profile {
+  height: 40px;
+  overflow: hidden;
+  display: flex;
+  padding: 5px;
+  border-radius: 25px;
+  @include responsive("mobile") {
+    .Navbar__Profile__Fullname{
+      display: none !important;
+    }
+  }
+  & div{
+    padding: 1px 0 !important;
+  }
+  & a {
+    //text-decoration: none;
+    //color: gray;
+  }
+}

@@ -18,7 +18,7 @@
         podSpaceFileServer: 'https://podspace.pod.ir',
         serverName: 'chat-server',
 
-        redirectUrl: 'https://test.podstream.ir',
+        redirectUrl: 'https://localhost:8080',
         // redirectUrl: 'https://188.75.65.103'
     },
     // SandBox Server
@@ -30,7 +30,8 @@
         podSpaceFileServer: 'http://sandbox.podspace.ir:8080',
         serverName: "chat-server",
         // redirectUrl: 'https://188.75.65.103'
-        redirectUrl: 'https://test.podstream.ir',
+        redirectUrl: 'https://localhost:8080',
+
     },
     local: {
         socketAddress: "wss://chat-sandbox.pod.ir/ws",//"wss://chat-sandbox.pod.ir/ws",

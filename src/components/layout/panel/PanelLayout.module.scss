@@ -1,0 +1,29 @@
+@import '../../../styles/responsive';
+
+.PanelLayout__Content__Parent_Collapsed {
+  padding: 0  ;
+  margin: 10px 0;
+  //min-height: calc(100vh - 60px);
+  width: 100%;
+  @include responsive("mobile") {
+    padding: 0 10px 0 10px;
+  }
+}
+.PanelLayout__Content__Parent {
+  padding: 0 10px 0 0;
+  margin: 10px 0;
+  //min-height: calc(100vh - 80px);
+  width: 100%;
+  @include responsive("mobile") {
+      //padding: 0 10px 0 10px;
+  }
+}
+
+.PanelLayout__Content {
+  //max-width: 1400px;
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  border-radius: 0;
+  //min-height: 280px;
+}
